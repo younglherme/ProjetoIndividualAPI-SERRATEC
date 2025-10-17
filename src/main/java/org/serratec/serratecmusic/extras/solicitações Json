@@ -1,0 +1,50 @@
+CRIAR USUARIO/PERFIL
+POST http://localhost:8080/usuarios
+Content-Type: application/json
+
+{
+  "nome": "",
+  "email": "",
+  "perfil": {
+    "telefone": "",
+    "dataNascimento": ""
+}
+}
+
+CRIAR PLAYLIST
+POST http://localhost:8080/playlists?usuarioId=1
+Content-Type: application/json
+
+{
+  "nome": "Top 10 Brabas",
+  "descricao": "as melhores do baile da argelia"
+}
+
+CRIAR ARTISTA
+POST http://localhost:8080/artistas
+Content-Type: application/json
+
+{
+  "nome": "Drake",
+  "nacionalidade": "Canada"
+}
+
+INSERE MUSICA A UM ARTISTA
+
+POST http://localhost:8080/musicas
+Content-Type: application/json
+
+{
+  "titulo": "",
+  "minutos": ,
+  "genero": "",
+  "artistaIds": [0]
+}
+
+ATUALIZAR A PLAYLIST
+
+PUT http://localhost:8080/playlists/1
+Content-Type: application/json
+
+[3,4]
+
