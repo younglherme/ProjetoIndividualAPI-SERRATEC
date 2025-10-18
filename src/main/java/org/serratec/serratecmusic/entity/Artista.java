@@ -1,27 +1,33 @@
 package org.serratec.serratecmusic.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
-@Table(name = "artista")
+@Table(name = "artistas")
 public class Artista {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Schema(description = "Nome")
     @NotBlank(message = "Nome é obrigatório")
     @Column
     private String nome;
 
+    @Schema(description = "Nacionalidade")
     @NotBlank(message = "Nacionalidade é obrigatória")
     @Column
     private String nacionalidade;
 
-
+    @JsonIgnore
+    @JsonBackReference
     @ManyToMany(mappedBy = "artistas")
     private List<Musica> musicas;
 

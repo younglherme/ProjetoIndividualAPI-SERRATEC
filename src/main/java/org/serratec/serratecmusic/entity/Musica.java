@@ -1,6 +1,8 @@
 package org.serratec.serratecmusic.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -19,14 +21,18 @@ public class Musica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @Schema(description = "Titulo")
     @NotBlank(message = "Título é obrigatório")
     @Column
     private String titulo;
 
+    @Schema(description = "Minutos da Musica")
     @Column
     @Min(1)
     private Integer minutos;
 
+    @Schema(description = "Gênero Musical")
     @NotNull(message = "Gênero é obrigatório")
     @Enumerated(EnumType.STRING)
     private Genero genero;
@@ -36,6 +42,7 @@ public class Musica {
             name = "musica_artista",
             joinColumns = @JoinColumn(name = "id_musica"),
             inverseJoinColumns = @JoinColumn(name = "id_artista"))
+    @JsonManagedReference
     private List<Artista> artistas;
 
     @ManyToMany(mappedBy = "musicas")

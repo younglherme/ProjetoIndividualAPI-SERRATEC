@@ -1,6 +1,9 @@
 package org.serratec.serratecmusic.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -14,23 +17,27 @@ public class Playlist {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message = "Nome é obrigatório")
+    @Schema(description = "Playlist")
+    @NotBlank(message = "Nome da playlist é obrigatório")
     @Column
     private String nome;
 
+    @Schema(description = "Descrição")
     @Size(max = 500)
     @Column
     private String descricao;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonBackReference
     private Usuario usuario;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "playlist_musica",
             joinColumns = @JoinColumn(name = "playlist_id"),
             inverseJoinColumns = @JoinColumn(name = "musica_id"))
+    @JsonIgnore
     private List<Musica> musicas;
 
     public Playlist() {}

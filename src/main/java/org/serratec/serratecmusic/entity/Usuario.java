@@ -1,6 +1,8 @@
 package org.serratec.serratecmusic.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
@@ -17,10 +19,12 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Schema(description = "Nome")
     @NotBlank(message = "O nome do usuario é obrigatório!")
     @Column(nullable = false)
     private String nome;
 
+    @Schema(description = "E-mail")
     @Email(message = "Email inválido!")
     @NotBlank(message = "Email é obrigatório")
     @Column
@@ -31,7 +35,10 @@ public class Usuario {
     @Valid
     private Perfil perfil;
 
+
+    @Schema(description = "Playlist")
     @OneToMany(mappedBy = "usuario")
+    @JsonManagedReference
     private List<Playlist> playlists;
 
     public Usuario() {}

@@ -1,5 +1,6 @@
 package org.serratec.serratecmusic.entity;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -16,10 +17,13 @@ public class Perfil {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @Schema(description = "Telefone")
     @NotBlank(message = "Telefone é obrigatório")
     @Size(min=11, max = 11)
     private String telefone;
 
+    @Schema(description = "Data de nascimento")
     @NotNull(message = "Informe a data de nascimento")
     @Past(message = "Data de nascimento inválida(deve ser inferior a data atual)")
     private LocalDate dataNascimento;
