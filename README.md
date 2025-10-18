@@ -34,6 +34,9 @@ cd ProjetoIndividualAPI-SERRATEC
 java SerratecmusicApplication.java
 ```
 
+É necessario realizar a criação do banco de dados!
+nome serratecmusic
+
 Para uma documentação completa dos endpoints, consulte a documentação da API
 
 Link de acesso http://localhost:8080/swagger-ui/index.html
