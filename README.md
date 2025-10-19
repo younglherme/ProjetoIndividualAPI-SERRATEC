@@ -1,47 +1,57 @@
-# SERRATEC-MUSIC
+# 🎵 Serratec Music API
 
- Este projeto consiste no desenvolvimento de uma API RESTful para gerenciar informações relacionadas a usuários, artistas, músicas e playlists. 
+API RESTful para gerenciamento de usuários, artistas, músicas e playlists desenvolvida com Spring Boot.
 
+## 📋 Requisitos
 
-## Tecnologias Utilizadas
+- Java 17+
+- Maven 3.8+
+- PostgreSQL 12+
 
-- Java
-- Springboot (framework)
-- Postgress(Banco de dados)
-- Swagger (Documentação)
+## 🚀 Como Executar
 
+### 1. Configurar o Banco de Dados
 
-## Como Executar o Projeto
+Crie um banco de dados PostgreSQL:
 
-Pré-requisitos:
-
-Java 17, Maven 3.8, Insomnia ou Postman, Dbeaver ou PgAdmin e sua IDE de preferencia
-
-### Instalação:
-
-- Clone o repositório
-```bash
-  git clone https://github.com/younglherme/ProjetoIndividualAPI-SERRATEC.git
+```sql
+CREATE DATABASE serratecmusic;
 ```
 
-### Acesse o diretório do projeto
-```bash
-cd ProjetoIndividualAPI-SERRATEC
+### 2. Configurar Credenciais
+
+Edite o arquivo `application.properties` e ajuste as credenciais do banco:
+
+```properties
+spring.datasource.username=postgres
+spring.datasource.password=12345
 ```
 
-### Rode a aplicação
+### 3. Executar a Aplicação
+
 ```bash
-java SerratecmusicApplication.java
+mvn spring-boot:run
 ```
 
-É necessario realizar a criação do banco de dados!
-nome serratecmusic
+A aplicação estará disponível em:
+```
+ http://localhost:8080
+```
 
-Para uma documentação completa dos endpoints, consulte a documentação da API
+## 📚 Documentação Swagger
 
-Link de acesso http://localhost:8080/swagger-ui/index.html
+Acesse a documentação interativa em:
+```
+http://localhost:8080/swagger-ui.html
+```
+
+## 📦 Dependências Principais
+
+- Spring Boot DevTools
+- Spring Boot Starter Web
+- Spring Boot Starter Data JPA
+- PostgreSQL Driver
+- Validation
+- Springdoc OpenAPI (Swagger)
 
 
-
-
-GitHub: younglherme
