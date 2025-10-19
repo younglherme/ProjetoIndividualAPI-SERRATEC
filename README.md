@@ -23,6 +23,7 @@ CREATE DATABASE serratecmusic;
 Edite o arquivo `application.properties` e ajuste as credenciais do banco:
 
 ```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/serratecmusic
 spring.datasource.username=postgres
 spring.datasource.password=12345
 ```
